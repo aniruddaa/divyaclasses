@@ -28,10 +28,10 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-d-9fw12sot7@ki
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 # Allow hosts configured by environment (comma-separated)
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(',') if os.environ.get('DJANGO_ALLOWED_HOSTS') else []
-
-
-# Application definition
+ALLOWED_HOSTS = ['https://divyaclasses-main-ac11d85.kuberns.cloud']
+CSRF_TRUSTED_ORIGINS = [
+    'https://divyaclasses-main-ac11d85.kuberns.cloud'
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
