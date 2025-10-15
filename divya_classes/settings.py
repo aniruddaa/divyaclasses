@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-d-9fw12sot7@ki
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 # Allow hosts configured by environment (comma-separated)
-ALLOWED_HOSTS = ['https://divyaclasses-main-ac11d85.kuberns.cloud']
+ALLOWED_HOSTS = ['http://divyaclasses-main-ac11d85.kuberns.cloud']
 CSRF_TRUSTED_ORIGINS = [
     'https://divyaclasses-main-ac11d85.kuberns.cloud'
 ]
