@@ -1,0 +1,317 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divya Classes</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        body {
+            background: url('{% static 'images/background.jpeg' %}') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .glass-section {
+            background: rgba(255,255,255,0.65);
+            box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+            border-radius: 18px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            margin: 2rem auto;
+            padding: 2rem 1.5rem;
+            max-width: 900px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- React and AngularJS can be added as needed -->
+            <script>
+                window.onload = function() {
+                    var msg = new SpeechSynthesisUtterance();
+                    msg.text = "Hello! Welcome to Divya Classes. This website provides information about our coaching institute, faculty, lecture videos, and enquiry options. Explore the site to learn more about our offerings and how we can help you succeed.";
+                    msg.lang = "en-US";
+                    window.speechSynthesis.speak(msg);
+                };
+            </script>
+</head>
+<body>
+    <header>
+    <img src="{% static 'images/logo.jpg' %}" alt="Divya Classes Logo" style="height:90px;vertical-align:middle;margin-right:20px;"> 
+        <h1 style="display:inline;vertical-align:middle;">Divya Classes</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#videos">Lecture Videos</a></li>
+                <li><a href="#enquiry">Enquiry</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Marathi Achievement Banner (animated & attractive) -->
+    <div id="marathi-achievement-banner" style="width:100vw;max-width:100%;display:flex;justify-content:center;padding:0.6rem 0;">
+        <div style="background:linear-gradient(90deg,#ff6a00,#ffcc00);color:#fff;font-weight:800;font-size:1.05rem;text-align:center;padding:0.6rem 1rem;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.14);display:inline-flex;align-items:center;gap:0.8rem;overflow:hidden;position:relative;min-width:320px;max-width:1100px;">
+            <div style="flex-shrink:0;background:rgba(255,255,255,0.12);padding:0.4rem 0.6rem;border-radius:8px;font-size:0.95rem;">🏆</div>
+            <div style="flex:1;white-space:nowrap;overflow:hidden;">
+                <div class="marathi-marquee" style="display:inline-block;padding-left:100%;animation:marqueeAnim 14s linear infinite;">भोसरी विभागात प्रथम क्रमांक — पिंपरी-चिंचवड मध्ये द्वितीय क्रमांक — 100% निकाल! (Divya Classes)</div>
+            </div>
+            <div style="flex-shrink:0;background:rgba(255,255,255,0.12);padding:0.35rem 0.6rem;border-radius:8px;font-size:0.9rem;">🎉</div>
+            <div class="shine" aria-hidden="true" style="position:absolute;top:0;left:-40%;height:100%;width:40%;background:linear-gradient(120deg,rgba(255,255,255,0.0),rgba(255,255,255,0.35),rgba(255,255,255,0.0));transform:skewX(-20deg);animation:shineAnim 3s linear infinite;opacity:0.9;"></div>
+        </div>
+    </div>
+
+    <style>
+    @keyframes bannerPulse {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+    }
+    @keyframes marqueeAnim {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-100%); }
+    }
+    @keyframes shineAnim {
+        0% { left: -40%; }
+        50% { left: 120%; }
+        100% { left: 120%; }
+    }
+    #whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        z-index: 2000;
+        background: #25d366;
+        color: #fff;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        font-size: 2.2rem;
+        cursor: pointer;
+        transition: box-shadow 0.2s;
+    }
+    #whatsapp-float:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.22); }
+    .scrolling-notice {
+        width:100vw;max-width:100%;background:rgba(255,255,255,0.85);color:#8B4513;font-size:1.08rem;text-align:center;padding:0.5rem 0;overflow:hidden;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.04);margin-bottom:0.5rem;
+    }
+    .scrolling-notice span {
+        display:inline-block;
+        animation: scrollNotice 18s linear infinite;
+    }
+    @keyframes scrollNotice {
+        0% { transform: translateX(100vw); }
+        100% { transform: translateX(-100vw); }
+    }
+    </style>
+    {% include 'react_banner.html' %}
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/918007133301" id="whatsapp-float" title="Chat on WhatsApp" target="_blank" rel="noopener">🟢</a>
+    <section id="home" class="animated-section glass-section">
+        <h2>Welcome to Divya Classes</h2>
+        <p>Empowering students of 10th and 12th to achieve academic excellence.</p>
+    </section>
+    <section id="about" class="animated-section glass-section">
+        <h2>About Us</h2>
+        <p>Divya Classes offers quality education for 10th and 12th standard students with experienced faculty and modern teaching methods.</p>
+    </section>
+    <section id="videos" class="animated-section glass-section">
+        <h2>Class Lecture Videos</h2>
+        <div id="video-list">
+            {% if videos %}
+                {% for video in videos %}
+                    <div style="margin-bottom: 1.5rem; background: #f7f7f7; border-radius: 8px; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+                        <h4 style="margin:0 0 0.5rem 0;">{{ video.title }}</h4>
+                        <p style="margin:0 0 0.5rem 0;">{{ video.description }}</p>
+                        <video width="320" height="180" controls style="max-width:100%; border-radius:6px;">
+                            <source src="{{ video.video.url }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div style="font-size:0.9rem;color:#888;margin-top:0.3rem;">Uploaded: {{ video.uploaded_at|date:"Y-m-d H:i" }}</div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div style="color:#888;">No lecture videos available yet.</div>
+            {% endif %}
+        </div>
+    </section>
+    <section id="testimonials" class="animated-section glass-section" style="margin-bottom:2rem;">
+        <h2 style="text-align:center;">What Our Students Say</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;">
+            {% for t in testimonials %}
+            <div style="background:rgba(255,255,255,0.85);border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,0.07);padding:1.2rem 1rem;max-width:320px;min-width:220px;flex:1 1 220px;display:flex;flex-direction:column;align-items:center;">
+                {% if t.image %}
+                <img src="{{ t.image.url }}" alt="{{ t.name }}" style="width:64px;height:64px;border-radius:50%;object-fit:cover;margin-bottom:0.7rem;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                {% endif %}
+                <div style="font-size:1.1rem;font-style:italic;color:#444;margin-bottom:0.7rem;">"{{ t.message }}"</div>
+                <div style="font-weight:bold;color:#8B4513;">- {{ t.name }}</div>
+            </div>
+            {% empty %}
+            <div style="color:#888;">No testimonials yet.</div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="faculty" class="animated-section glass-section" style="margin-bottom:2rem;">
+        <h2 style="text-align:center;">Our Faculty</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;">
+            {% for f in faculty %}
+            <div style="background:rgba(255,255,255,0.85);border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,0.07);padding:1.2rem 1rem;max-width:260px;min-width:180px;flex:1 1 180px;display:flex;flex-direction:column;align-items:center;">
+                {% if f.image %}
+                <img src="{{ f.image.url }}" alt="{{ f.name }}" style="width:70px;height:70px;border-radius:50%;object-fit:cover;margin-bottom:0.7rem;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                {% endif %}
+                <div style="font-weight:bold;font-size:1.1rem;color:#2d3e50;">{{ f.name }}</div>
+                <div style="color:#8B4513;font-size:1rem;margin-bottom:0.5rem;">{{ f.subject }}</div>
+                <div style="font-size:0.98rem;color:#444;">{{ f.bio }}</div>
+            </div>
+            {% empty %}
+            <div style="color:#888;">No faculty info yet.</div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="enquiry" class="animated-section glass-section">
+        <h2>Enquiry Form (8th-12th, SSC, HSC, CBSE, JEE, NEET, CET)</h2>
+        <form id="enquiry-form" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="phone" placeholder="Your Phone" required>
+            <select name="standard" required>
+                <option value="">Select Standard/Exam</option>
+                <option value="8th">8th</option>
+                <option value="9th">9th</option>
+                <option value="10th">10th (SSC/HSC/CBSE)</option>
+                <option value="11th">11th (HSC/CBSE)</option>
+                <option value="12th">12th (HSC/CBSE)</option>
+                <option value="JEE">JEE</option>
+                <option value="NEET">NEET</option>
+                <option value="CET">CET</option>
+            </select>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="enquiry-success" style="display:none; color:green;">Thank you for your enquiry!</div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Divya Classes. All rights reserved.<br>Owner: Indrajeet Bhosale</p>
+    </footer>
+
+    <!-- AI Chatbot Floating Button and Window -->
+    <div id="ai-chatbot-btn" style="position:fixed;bottom:30px;right:30px;z-index:1000;background:#2d3e50;color:#fff;border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);cursor:pointer;font-size:2rem;">
+        💬
+    </div>
+    <div id="ai-chatbot-window" style="display:none;position:fixed;bottom:100px;right:30px;width:340px;max-width:90vw;height:420px;background:#fff;border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,0.25);z-index:1001;flex-direction:column;overflow:hidden;">
+        <div style="background:#2d3e50;color:#fff;padding:1rem;font-weight:bold;">AI Career Assistant <span id="ai-chatbot-close" style="float:right;cursor:pointer;">&times;</span></div>
+        <div style="padding:0.5rem 1rem 0.2rem 1rem;">
+            <label for="ai-lang-select" style="font-size:0.95rem;">Language:</label>
+            <select id="ai-lang-select" style="font-size:0.95rem;">
+                <option value="en">English</option>
+                <option value="mr">मराठी</option>
+            </select>
+        </div>
+        <div id="ai-chatbot-messages" style="flex:1;overflow-y:auto;padding:1rem;height:210px;"></div>
+        <form id="ai-chatbot-form" style="display:flex;border-top:1px solid #eee;">
+            <input type="text" id="ai-chatbot-input" placeholder="Ask about your career..." style="flex:1;padding:0.7rem;border:none;outline:none;">
+            <button type="submit" style="background:#2d3e50;color:#fff;border:none;padding:0 1.2rem;font-size:1.2rem;">➤</button>
+        </form>
+    </div>
+    <script>
+    // Floating AI Chatbot UI with Speech Recognition and Synthesis
+    $(function(){
+        $('#ai-chatbot-btn').click(function(){
+            $('#ai-chatbot-window').fadeIn();
+            // Speak welcome message in Marathi
+            speakText('Divya Classes मध्ये आपले स्वागत आहे!', 'mr-IN');
+        });
+        $('#ai-chatbot-close').click(function(){
+            $('#ai-chatbot-window').fadeOut();
+        });
+        $('#ai-chatbot-form').submit(function(e){
+            e.preventDefault();
+            var msg = $('#ai-chatbot-input').val().trim();
+            var lang = $('#ai-lang-select').val();
+            if(!msg) return;
+            $('#ai-chatbot-messages').append('<div style="margin-bottom:8px;"><b>You:</b> '+$('<div>').text(msg).html()+'</div>');
+            $('#ai-chatbot-input').val('');
+            $('#ai-typing').remove();
+            $('#ai-chatbot-messages').append('<div id="ai-typing" style="margin-bottom:8px;color:#888;"><b>AI:</b> <span>Typing...</span></div>');
+            $('#ai-chatbot-messages').scrollTop($('#ai-chatbot-messages')[0].scrollHeight);
+            $.ajax({
+                url: '/ai-chatbot/',
+                type: 'POST',
+                data: {message: msg, lang: lang},
+                success: function(response) {
+                    $('#ai-typing').remove();
+                    if(response.success) {
+                        var aiReply = $('<div>').text(response.reply).html().replace(/\n/g,'<br>');
+                        $('#ai-chatbot-messages').append('<div style="margin-bottom:8px;"><b>AI:</b> '+aiReply+'</div>');
+                        var speakLang = (lang === 'mr') ? 'mr-IN' : 'en-IN';
+                        speakText(response.reply, speakLang);
+                    } else {
+                        $('#ai-chatbot-messages').append('<div style="margin-bottom:8px;color:red;"><b>AI:</b> Sorry, there was an error. Please try again later.</div>');
+                    }
+                    $('#ai-chatbot-messages').scrollTop($('#ai-chatbot-messages')[0].scrollHeight);
+                },
+                error: function() {
+                    $('#ai-typing').remove();
+                    $('#ai-chatbot-messages').append('<div style="margin-bottom:8px;color:red;"><b>AI:</b> Sorry, there was an error. Please try again later.</div>');
+                    $('#ai-chatbot-messages').scrollTop($('#ai-chatbot-messages')[0].scrollHeight);
+                }
+            });
+        });
+
+        // Speech Recognition
+        var recognizing = false;
+        var recognition;
+        if ('webkitSpeechRecognition' in window) {
+            recognition = new webkitSpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-IN';
+            recognition.onstart = function() { recognizing = true; $('#ai-chatbot-input').attr('placeholder','Listening...'); };
+            recognition.onend = function() { recognizing = false; $('#ai-chatbot-input').attr('placeholder','Ask about your career...'); };
+            recognition.onerror = function() { recognizing = false; $('#ai-chatbot-input').attr('placeholder','Ask about your career...'); };
+            recognition.onresult = function(event) {
+                var transcript = event.results[0][0].transcript;
+                $('#ai-chatbot-input').val(transcript);
+                $('#ai-chatbot-form').submit();
+            };
+            // Add mic button
+            var micBtn = $('<button type="button" id="ai-mic-btn" style="background:none;border:none;outline:none;cursor:pointer;font-size:1.5rem;margin-left:4px;" title="Speak"><span id="ai-mic-icon">🎤</span></button>');
+            $('#ai-chatbot-form').append(micBtn);
+            $('#ai-mic-btn').click(function(){
+                if(recognizing) {
+                    recognition.stop();
+                } else {
+                    recognition.start();
+                }
+            });
+        }
+
+        // Speech Synthesis
+        function speakText(text, lang) {
+            if ('speechSynthesis' in window) {
+                var utter = new SpeechSynthesisUtterance(text);
+                utter.lang = lang || 'en-IN';
+                window.speechSynthesis.speak(utter);
+            }
+        }
+    });
+    </script>
+    <script>
+    // Set AI-themed background image automatically using Unsplash
+    document.addEventListener('DOMContentLoaded', function() {
+        // Only set on desktop for best effect
+        if(window.innerWidth > 700) {
+            fetch('https://source.unsplash.com/1600x900/?ai,technology,abstract')
+                .then(response => {
+                    document.body.style.backgroundImage = `url('${response.url}')`;
+                    document.body.style.backgroundSize = 'cover';
+                    document.body.style.backgroundAttachment = 'fixed';
+                    document.body.style.backgroundRepeat = 'no-repeat';
+                });
+        }
+    });
+    </script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

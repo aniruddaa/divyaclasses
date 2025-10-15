@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry - Divya Classes</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <header>
+        <a href="/" style="text-decoration:none;"><img src="{% static 'images/logo.jpg' %}" alt="Divya Classes Logo" style="height:60px;vertical-align:middle;margin-right:20px;"></a>
+        <h1 style="display:inline;vertical-align:middle;">Divya Classes</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/enquiry/">Enquiry</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Enquiry Form</h2>
+            <form id="enquiry-form" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="phone" placeholder="Your Phone" required>
+                <select name="standard" required>
+                    <option value="">Select Standard/Exam</option>
+                    <option value="8th">8th</option>
+                    <option value="9th">9th</option>
+                    <option value="10th">10th (SSC/HSC/CBSE)</option>
+                    <option value="11th">11th (HSC/CBSE)</option>
+                    <option value="12th">12th (HSC/CBSE)</option>
+                    <option value="JEE">JEE</option>
+                    <option value="NEET">NEET</option>
+                    <option value="CET">CET</option>
+                </select>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            <div id="enquiry-success" style="display:none; color:green;">Thank you for your enquiry!</div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Divya Classes. All rights reserved.</p>
+    </footer>
+    <script>
+    $(document).ready(function() {
+        $('#enquiry-form').on('submit', function(e) {
+            e.preventDefault();
+            var formData = $(this).serialize();
+            $.ajax({
+                url: '/enquiry/',
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    if (response.success) {
+                        $('#enquiry-success').show();
+                        $('#enquiry-form').trigger('reset');
+                    } else {
+                        alert('Submission failed. Please try again.');
+                    }
+                },
+                error: function() {
+                    alert('Submission failed. Please try again.');
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>

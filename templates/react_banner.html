@@ -1,0 +1,33 @@
+<!-- React root for future enhancements -->
+<div id="react-root"></div>
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+function AnimatedBanner() {
+  const [show, setShow] = React.useState(false);
+  React.useEffect(() => {
+    setTimeout(() => setShow(true), 500);
+  }, []);
+  return (
+    <div style={{
+      opacity: show ? 1 : 0,
+      transform: show ? 'translateY(0)' : 'translateY(-40px)',
+      transition: 'all 1s',
+      background: '#ffb347',
+      color: '#222',
+      padding: '1.5rem',
+      borderRadius: '10px',
+      margin: '2rem auto',
+      maxWidth: '600px',
+      textAlign: 'center',
+      fontSize: '1.5rem',
+      fontWeight: 'bold',
+      boxShadow: '0 2px 12px rgba(0,0,0,0.07)'
+    }}>
+      🚀 Admissions Open for 2025-26! Enroll Now for 8th-10th 11th/12th science (CET/JEE/NEET)/Commerce
+    </div>
+  );
+}
+ReactDOM.render(<AnimatedBanner />, document.getElementById('react-root'));
+</script>

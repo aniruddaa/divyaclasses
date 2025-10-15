@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divya Classes Admin Panel</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        .admin-header {
+            background: #2d3e50;
+            color: #fff;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+        }
+        .admin-header h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+        .admin-header .owner {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        .admin-nav {
+            background: #fff;
+            display: flex;
+            gap: 2rem;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border-radius: 0 0 16px 16px;
+            margin-bottom: 2rem;
+            animation: fadeInDown 1s;
+        }
+        .admin-nav a {
+            color: #2d3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .admin-nav a:hover {
+            color: #007bff;
+        }
+        .admin-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 2rem;
+            animation: fadeInUp 1.2s;
+        }
+        .admin-section {
+            margin-bottom: 2rem;
+        }
+        .admin-section h2 {
+            color: #2d3e50;
+            margin-bottom: 1rem;
+        }
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        .admin-table th, .admin-table td {
+            border: 1px solid #e0e0e0;
+            padding: 0.7rem 1rem;
+            text-align: left;
+        }
+        .admin-table th {
+            background: #f7f7f7;
+        }
+        .admin-table tr:hover {
+            background: #f0f8ff;
+            transition: background 0.2s;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-header">
+        <h1><i class="fas fa-user-cog"></i> Divya Classes Admin</h1>
+        <span class="owner">Owner: Indrajeet Bhosale</span>
+    </div>
+    <nav class="admin-nav">
+        <a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="#enquiries"><i class="fas fa-envelope"></i> Enquiries</a>
+        <a href="#videos"><i class="fas fa-video"></i> Lecture Videos</a>
+        <a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+    <div class="admin-content">
+        <section class="admin-section" id="dashboard">
+            <h2>Welcome, Admin!</h2>
+            <p>This is your new animated admin panel. Use the navigation above to manage the site.</p>
+        </section>
+        <section class="admin-section" id="enquiries">
+            <h2>Recent Enquiries</h2>
+            <table class="admin-table" id="enquiry-table">
+                <thead>
+                    <tr><th>Name</th><th>Email</th><th>Phone</th><th>Standard</th><th>Message</th><th>Date</th></tr>
+                </thead>
+                <tbody>
+                    <!-- Enquiries will be loaded here by JS -->
+                </tbody>
+            </table>
+        </section>
+        <section class="admin-section" id="videos">
+            <h2>Lecture Videos</h2>
+            <table class="admin-table" id="video-table">
+                <thead>
+                    <tr><th>Title</th><th>Description</th><th>Uploaded At</th></tr>
+                </thead>
+                <tbody>
+                    <!-- Videos will be loaded here by JS -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+    // Animated scroll to section
+    $('.admin-nav a').click(function(e){
+        var href = $(this).attr('href');
+        if(href.startsWith('#')){
+            e.preventDefault();
+            $('html, body').animate({scrollTop: $(href).offset().top-40}, 600);
+        }
+    });
+    // Load Enquiries (AJAX)
+    $(function(){
+        $.get('/admin/enquiries/', function(data){
+            $('#enquiry-table tbody').html(data);
+        });
+        $.get('/admin/videos/', function(data){
+            $('#video-table tbody').html(data);
+        });
+    });
+    </script>
+</body>
+</html>
